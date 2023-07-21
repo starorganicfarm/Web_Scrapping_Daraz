@@ -1,0 +1,263 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[6]:
+
+
+import re
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# open the browser
+browser = webdriver.Chrome()
+
+# load the webpage
+name = "Lays Salt rs 40"
+browser.get(f'https://www.daraz.pk/catalog/?q={name}')
+
+titles = browser.find_elements(By.CLASS_NAME, 'title--wFj93')
+prices = browser.find_elements(By.CLASS_NAME, 'price--NVB62')
+
+title_texts = [title.text for title in titles]
+price_texts = [price.text for price in prices] 
+
+for title, price in zip(title_texts, price_texts):
+    price_value = re.sub(r'[^\d.]', '', price)  # Remove all non-digit characters except decimal point
+    price_value = price_value.replace('.', '')
+    price_value = int(price_value)
+    
+    if name == 'Lays Yogurt and Herb Rs.60' and ("Lays Yogurt and Herb" in title) and  (55 <= float(price_value) <= 60):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Nestle Pure Life 5L' and (225 <= float(price_value) <= 235):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Pepsi 500ml Bottle' and ("Pepsi" in title) and (130 <= float(price_value) <= 140):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Sting 500ml Energy Drink' and ("Sting" in title) and (130 <= float(price_value) <= 140):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lays Masala Rs.60' and ("Lays Masala" in title) and (55 <= float(price_value) <= 60):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lays French Cheese Rs.60'  and ("Lays French Cheese" in title) and (55 <= float(price_value) <= 60):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Mountain Dew Drink 500ml' and ("Mountain Dew Drink" in title) and (130 <= float(price_value) <= 140):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lays French Cheese 14 g' and ("Lays French Cheese" in title) and (15 <= float(price_value) <= 20):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lays Salt rs 40' and ("Lays" in title) and (35 <= float(price_value) <= 40):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Rio Strawberry Half Roll' and ("Rio Strawberry" in title) and (35 <= float(price_value) <= 40):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Aquafina 500ml' and ("Aquafina 500ml" in title) and (70 <= float(price_value) <= 80):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Kurkure Chatni Chaska 20' and ("Kurkure Chatni Chaska" in title) and (10 <= float(price_value) <= 20):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lays Masala 14' and ("Lays" in title) and (15 <= float(price_value) <= 20):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lays Salt 14' and ("Lays" in title) and (15 <= float(price_value) <= 20):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Ariel Original Detergent' and ("Ariel" in title) and (315 <= float(price_value) <= 330):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Rossmoor Baking Powder 50gm' and ("Baking Powder" in title) and (180 <= float(price_value) <= 210):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Bonus Tristar Detergent' and ("Bonus" in title) and (200 <= float(price_value) <= 230):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Brite Maximum Power' and ("Brite" in title) and (280 <= float(price_value) <= 300):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Capri Pack of 3 Peach Soap' and ("Capri" in title) and (320 <= float(price_value) <= 360):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Colgate Maximum Cavity Protection Toothpaste' and ("Colgate" in title) and (135 <= float(price_value) <= 150):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'English Prickly Heat Powder' and ("English Prickly Heat Powder" in title) and (260 <= float(price_value) <= 280):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Ensure Chocolate' and ("ENSURE" in title) and (2000 <= float(price_value) <= 2260):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Ensure Vanilla 850gm' and ("Vanilla" in title) and (3700 <= float(price_value) <= 3900):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Express Power 500g' and ("Express Power 500g" in title) and (220 <= float(price_value) <= 240):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Himalaya Moisturizing Aloe Vera Face Wash 50 ml' and ("Himalaya" in title) and (260 <= float(price_value) <= 280):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Laziza Ras Malai Mix 75g' and ("Laziza Ras Malai" in title) and (190 <= float(price_value) <= 230):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lemon Max Long Bar Double' and ("Lemon Max Long Bar Double" in title) and (180<= float(price_value) <= 200):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lifebuoy Soap' and ("Lifebuoy Total" in title) and (85 <= float(price_value) <= 95):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "L'Oreal Paris - LOreal Elvive Color Protect Conditioner 175 ML" and ("L'Oreal Paris" in title) and (360 <= float(price_value) <= 380):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'PAPRIKA POWDER 25 GRAM' and ("PAPRIKA POWDER" in title) and (150 <= float(price_value) <= 200):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Saeed Ghani Ubtan Face Wash (60ml)' and ("Ubtan" in title) and (190 <= float(price_value) <= 210):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "Saniplast Fabric Bandage 20's" and ("Saniplast" in title) and (80<= float(price_value) <= 90):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "Saniplast Spot Bandage 20's" and ("Saniplast" in title) and (60 <= float(price_value) <= 70):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')  
+    elif name == 'Garlic Chilli Sauce Family Pack 800gm' and ("Garlic Chilli Sauce" in title) and (390 <= float(price_value) <= 410):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Tomato Ketchup Family Pack 800gm' and ("Tomato Ketchup" in title) and (390 <= float(price_value) <= 410):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "SunsilkConditionerBlack & Shine" and ("SunsilkConditionerBlack" in title) and (300<= float(price_value) <= 340):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "New Tapall Green Tea Tropical Peach 30 Bags" and ("New Tapall Green Tea " in title) and (250 <= float(price_value) <= 300):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'vatika dandruff guard lemon' and ("vatika dandruff" in title) and (640 <= float(price_value) <= 670):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "Young's Mayonnaise 500ml" and ("Young's Mayonnaise 500ml" in title) and (330 <= float(price_value) <= 370):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "Youngs Sandwich Spread 200ml Pouch" and ("Youngs Sandwich Spread" in title) and (350<= float(price_value) <= 370):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == "knorr green chutney" and (220 <= float(price_value) <= 250):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')    
+    elif name == "Surf Excel Washing Powder Care - 500G" and ("Surf Excel" in title) and (290 <= float(price_value) <= 300):
+        print(f'Title: {title}')
+        print(f'Price: {price}')
+        print('\n')
+    elif name == 'Lays Wavy BBQ Rs.30':
+        print('Price: Rs. 30')
+        print('\n')
+        break
+    elif name == 'Super Catty Chins Cheese Rs.40':
+        print('Price: Rs. 40')
+        print('\n')
+        break
+    elif name == 'Chillz Chips Rs.10':
+        print('Price: Rs. 10')
+        print('\n')
+        break
+    elif name == 'Milo 180 ml':
+        print('Price: Rs. 80')
+        print('\n')
+        break
+    elif name == 'Super Crisp BBQ Rs.40':
+        print('Price: Rs. 40')
+        print('\n')
+        break
+    elif name == 'Pakola Strawberry 200ml':
+        print('Price: Rs. 55')
+        print('\n')
+        break
+    elif name == 'Olpers Badam Zafran':
+        print('Price: Rs. 75')
+        print('\n')
+        break
+    elif name == 'Kurkure Red Chilli Rs.20':
+        print('Price: Rs. 20')
+        print('\n')
+        break
+    elif name == 'Bisconni Chocolate Chip 10':
+        print('Price: Rs. 10')
+        print('\n')
+        break
+    elif name == 'Bisconni Chocolatto Biscuit':
+        print('Price: Rs. 10')
+        print('\n')
+        break
+    elif name == 'Gluco Biscuit':
+        print('Price: Rs. 40')
+        print('\n')
+        break
+    elif name == 'Slice Juice 200ml Mango':
+        print('Price: Rs. 38')
+        print('\n')
+        break
+    elif name == 'Lays Paprika Rs.30':
+        print('Price: Rs. 30')
+        print('\n')
+        break
+
+browser.close()
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
